@@ -1,17 +1,19 @@
 // App.js
-import React, { useState } from 'react';
-// import Navigation from './components/Navigation';
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import MainPage from './pages/MainPage';
 import BlogPage from './pages/BlogPage';
 
 const App = () => {
-  const [currentPage, setCurrentPage] = useState('main');
-
   return (
-    <div className="min-h-screen bg-white">
-      {/* <Navigation currentPage={currentPage} setCurrentPage={setCurrentPage} /> */}
-      {currentPage === 'main' ? <MainPage /> : <BlogPage />}
-    </div>
+    <Router>
+      <div className="min-h-screen bg-white">
+        <Routes>
+          <Route path="/" element={<MainPage />} />
+          <Route path="/blog" element={<BlogPage />} />
+        </Routes>
+      </div>
+    </Router>
   );
 };
 
